@@ -11,7 +11,10 @@ import java.net.URL;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import javazoom.jl.player.advanced.AdvancedPlayer;
@@ -24,14 +27,29 @@ public class Jukebox implements Runnable {
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Jukebox());
 	}
-
+	 JFrame frame = new JFrame();
+	   JPanel panel = new JPanel();
+	   JButton button1 = new JButton();
+	   JButton button2 = new JButton();
+	   JButton button3 = new JButton();
            public void run() {
 
 		// 3. Find an mp3 on your computer or on the Internet.
 		// 4. Create a Song
-
+        	  Song song1 = new Song("Alan Walker - Faded.mp3");
+        	  Song song2 = new Song("everything will fade....mp3");
+        	  Song song3 = new Song("Lucid Dreams - Juice WRLD Minecraft Parody");
 		// 5. Play the Song
-
+        	   song1.play();
+        	   song2.play();
+        	   song3.play();
+        	   frame.add(panel);
+        	   panel.add(button1);
+        	   panel.add(button2);
+        	   panel.add(button3);
+        	   button1.setText("Alan Walker - Faded");
+        	   button2.setText("Ouse - everything will fade...");
+        	   button3.setText("HurtSteveRemix - Lucid Dreams");
 		/*
 		 * 6. Create a user interface for your Jukebox so that the user can to
 		 * choose which song to play. You can use can use a different button for
@@ -39,6 +57,7 @@ public class Jukebox implements Runnable {
 		 * cover is clicked, stop the currently playing song, and play the one
 		 * that was selected.
 		 */
+        	  
           }
 	/* Use this method to add album covers to your Panel. */
 	private JLabel loadImage(String fileName) {
