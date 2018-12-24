@@ -38,18 +38,23 @@ public class Jukebox implements Runnable {
 		// 4. Create a Song
         	  Song song1 = new Song("Alan Walker - Faded.mp3");
         	  Song song2 = new Song("everything will fade....mp3");
-        	  Song song3 = new Song("Lucid Dreams - Juice WRLD Minecraft Parody");
+        	  Song song3 = new Song("Lucid Dreams - Juice WRLD Minecraft Parody.mp3");
 		// 5. Play the Song
-        	   song1.play();
-        	   song2.play();
-        	   song3.play();
+        	   //song1.play();
+        	   //song2.play();
+        	   //song3.play();
         	   frame.add(panel);
+        	   frame.setVisible(true);
+        	   frame.setTitle("jukebox");
+        	   frame.setSize(500, 500);
         	   panel.add(button1);
         	   panel.add(button2);
         	   panel.add(button3);
         	   button1.setText("Alan Walker - Faded");
         	   button2.setText("Ouse - everything will fade...");
         	   button3.setText("HurtSteveRemix - Lucid Dreams");
+        	   
+        	   
 		/*
 		 * 6. Create a user interface for your Jukebox so that the user can to
 		 * choose which song to play. You can use can use a different button for
