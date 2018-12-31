@@ -4,6 +4,8 @@
  */
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -22,7 +24,7 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 /* 1. Download the JavaZoom jar from here: http://bit.ly/javazoom
  * 2. Right click your project and add it as an External JAR (Under Java Build Path > Libraries).*/
 
-public class Jukebox implements Runnable {
+public class Jukebox implements Runnable, ActionListener {
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Jukebox());
@@ -32,13 +34,15 @@ public class Jukebox implements Runnable {
 	   JButton button1 = new JButton();
 	   JButton button2 = new JButton();
 	   JButton button3 = new JButton();
+	   JButton button4 = new JButton();
+	   Song song1 = new Song("Alan Walker - Faded.mp3");
+ 	  Song song2 = new Song("everything will fade....mp3");
+ 	  Song song3 = new Song("Lucid Dreams - Juice WRLD Minecraft Parody.mp3");
            public void run() {
 
 		// 3. Find an mp3 on your computer or on the Internet.
 		// 4. Create a Song
-        	  Song song1 = new Song("Alan Walker - Faded.mp3");
-        	  Song song2 = new Song("everything will fade....mp3");
-        	  Song song3 = new Song("Lucid Dreams - Juice WRLD Minecraft Parody.mp3");
+        	 
 		// 5. Play the Song
         	   //song1.play();
         	   //song2.play();
@@ -50,10 +54,12 @@ public class Jukebox implements Runnable {
         	   panel.add(button1);
         	   panel.add(button2);
         	   panel.add(button3);
+        	   panel.add(button4);
         	   button1.setText("Alan Walker - Faded");
         	   button2.setText("Ouse - everything will fade...");
         	   button3.setText("HurtSteveRemix - Lucid Dreams");
-        	   
+        	   button4.setText("►");
+        	   button1.addActionListener(this);
         	   
 		/*
 		 * 6. Create a user interface for your Jukebox so that the user can to
@@ -69,6 +75,22 @@ public class Jukebox implements Runnable {
 		URL imageURL = getClass().getResource(fileName);
 		Icon icon = new ImageIcon(imageURL);
 		return new JLabel(icon);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		JButton pressed = (JButton) e.getSource();
+		if (pressed == button1) {
+			song1.play();
+		} else if (pressed == button2) {
+			song2.play();
+		} else if (pressed == button3) {
+			song3.play();
+		} else if (pressed == button4) {
+			song1.stop();
+			song2.stop();
+			song3.stop();
+		}
 	}
 
 }
